@@ -7,6 +7,19 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="manifest" href="manifest.webmanifest">
+    <script type="module">
+            import * as sdk from 'https://cdn.jsdelivr.net/npm/@telegram-apps/sdk@3.1.1/dist/index.min.js';
+            function hapticFeedback(params, onSupportedCallback, onNotSupportedCallback) {
+                if (sdk.isHapticFeedbackSupported()) {
+                    sdk.postEvent('web_app_trigger_haptic_feedback', params);
+                    onSupportedCallback?.();
+                    return;
+                }
+                console.log('Haptic feedback is not supported');
+                onNotSupportedCallback?.();
+            }
+            window.triggerHapticFeedback = hapticFeedback;
+    </script>
   </head>
   <body>
     <div id="unity-container">
