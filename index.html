@@ -7,6 +7,8 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="manifest" href="manifest.webmanifest">
+  </head>
+  <body>
     <script type="module">
             import * as sdk from 'https://cdn.jsdelivr.net/npm/@telegram-apps/sdk@3.1.1/dist/index.min.js';
             function hapticFeedback(params, onSupportedCallback, onNotSupportedCallback) {
@@ -20,8 +22,6 @@
             }
             window.triggerHapticFeedback = hapticFeedback;
     </script>
-  </head>
-  <body>
     <button onclick="window.triggerHapticFeedback()">Haptic</button>
     <div id="unity-container">
       <canvas id="unity-canvas" width=1000 height=600 tabindex="-1"></canvas>
